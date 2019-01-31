@@ -1,6 +1,6 @@
 <template>
   <div>
-    这是一个首页，并且是由这个人=> {{ name }}
+    这是一个首页，并且是由这个人=> {{ name }}创建
   </div>
 </template>
 
