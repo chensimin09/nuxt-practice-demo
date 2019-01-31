@@ -10,8 +10,6 @@
       </div>
       <a-menu theme="dark" mode="inline" :default-selected-keys="['0']">
         <a-menu-item key="0">
-
-          <!--<span>nav 1</span>-->
           <nuxt-link to="/home">
             <a-icon type="user" />
             <span>首页</span>
