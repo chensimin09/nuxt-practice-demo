@@ -13,7 +13,8 @@
 
           <!--<span>nav 1</span>-->
           <nuxt-link to="/home">
-            <a-icon type="user" />首页
+            <a-icon type="user" />
+            <span>首页</span>
           </nuxt-link>
         </a-menu-item>
         <a-sub-menu key="sub1">
