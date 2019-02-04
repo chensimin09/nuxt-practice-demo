@@ -19,20 +19,22 @@
           <span slot="title">
             <a-icon type="laptop" />
             <span>
-              subnav 1
+              列表管理
             </span>
           </span>
           <a-menu-item key="11">
-            option1
+            <nuxt-link to="/listManage/ListOption1">
+              <span>列表页面1</span>
+            </nuxt-link>
           </a-menu-item>
           <a-menu-item key="12">
-            option2
+            列表页面2
           </a-menu-item>
           <a-menu-item key="13">
-            option3
+            列表页面3
           </a-menu-item>
           <a-menu-item key="14">
-            option4
+            列表页面4
           </a-menu-item>
         </a-sub-menu>
       </a-menu>
