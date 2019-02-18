@@ -8,16 +8,29 @@
     <label>
       <input v-model="inputModel" type="text">
     </label>
+    <div>
+      <span>(inText + inputModel) = {{ activeValue }}</span>
+    </div>
   </div>
 </template>
 
 <script>
 export default {
   name: 'firComponent',
-  props: { list: Array },
+  props: { list: Array, inText: String },
   data: () => {
     return {
       inputModel: ''
+    }
+  },
+  computed: {
+    activeValue: {
+      get: () => {
+        return 'tetetet'
+      },
+      set: inputModel => {
+        return inputModel
+      }
     }
   }
 }

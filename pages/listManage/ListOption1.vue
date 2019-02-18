@@ -17,6 +17,7 @@
         />
         <firComponent
           :list="list"
+          :in-text="inText"
         />
         <test-table :config="config"></test-table>
       </div>
@@ -34,6 +35,7 @@ export default {
   data: () => {
     return {
       title: '展示下列表1的查询',
+      inText: '我是个好人',
       config: {
         columns: [
           {
