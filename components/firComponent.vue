@@ -1,19 +1,25 @@
 <template>
   <div>
-    <span v-for="l in list" :key="l.$index">
+    <div v-for="l in list" :key="l.$index">
       {{ l.text }}
-    </span>
+    </div>
+    <div>{{ inputModel }}</div>
+    <br>
     <label>
-      <input v-model="inputText" type="text">
+      <input v-model="inputModel" type="text">
     </label>
-    <span>{{ inputText }}</span>
   </div>
 </template>
 
 <script>
 export default {
   name: 'firComponent',
-  props: ['list', 'inputText']
+  props: { list: Array },
+  data: () => {
+    return {
+      inputModel: ''
+    }
+  }
 }
 </script>
 

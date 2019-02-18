@@ -12,7 +12,7 @@
 <script>
 export default {
   name: 'MyTable',
-  props: ['config']
+  props: { config: Object }
 }
 </script>
 

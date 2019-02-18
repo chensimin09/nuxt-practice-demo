@@ -17,7 +17,6 @@
         />
         <firComponent
           :list="list"
-          :input-text="inputText"
         />
         <test-table :config="config"></test-table>
       </div>
@@ -91,8 +90,7 @@ export default {
         { key: 3, text: '第仨行' },
         { key: 4, text: '第四行' },
         { key: 5, text: '第五行' }
-      ],
-      inputText: ''
+      ]
     }
   }
 }
