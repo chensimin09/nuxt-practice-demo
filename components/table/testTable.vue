@@ -1,5 +1,5 @@
-Vue.component('my-table', {
-props: ['config']
+Vue.component('test-table',{
+props: ['config'],
 template:
 `<a-table
   :columns = "config.columns"
