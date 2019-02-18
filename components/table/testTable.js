@@ -1,7 +1,8 @@
-Vue.component('test-table',{
-props: ['config'],
-template:
-`<a-table
+import Vue from 'vue'
+
+Vue.component('test-table', {
+  props: { config: Object },
+  template: `<a-table
   :columns = "config.columns"
   :pagination = "config.pagination"
   :loading = "config.loading"
