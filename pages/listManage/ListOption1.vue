@@ -2,18 +2,19 @@
   <div>
     <header>
       <span class="duckpin"></span>
-      <span class="title">{{ title }}</span>
+      <span class="title">
+        {{ title }}
+      </span>
     </header>
     <body style="margin-top: 20px">
-    <div class="subTitle">
-      <span>
+      <div class="subTitle">
+        <span>
           下面展示的将会是一个列表， 该表用的是什么鬼，就不知道了
-      </span>
-      <my-table config="config"></my-table>
-    </div>
+        </span>
+        <my-table config="config"></my-table>
+      </div>
     </body>
   </div>
-
 </template>
 
 <script>
