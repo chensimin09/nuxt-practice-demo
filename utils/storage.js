@@ -28,7 +28,7 @@ export function setLocal(key, val, noVersion) {
   }
 }
 
-export function getLocal(key, isRemove, noVersion, special) {
+export function getLocal(key, isRemove, noVersion) {
   if (!key) return
   const localKey = noVersion
     ? key
