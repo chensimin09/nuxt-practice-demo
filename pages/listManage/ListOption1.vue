@@ -12,14 +12,16 @@
           下面展示的将会是一个列表， 该表用的是什么鬼，就不知道了
         </span>
         <myTable
-          :config="config"
+          :columns="config.columns"
+          :pagination="config.pagination"
+          :data="tableData"
+          :loading="config.loading"
           rowkey="fir"
         />
         <firComponent
           :list="list"
           :in-text="inText"
         />
-        <test-table :config="config"></test-table>
       </div>
     </body>
   </div>
@@ -28,13 +30,21 @@
 <script>
 import firComponent from '@/components/firComponent.vue'
 import myTable from '@/components/table/myTable.vue'
+import axios from 'axios'
+import { commonApi, pageApi } from '@/factory/api'
 
 export default {
   name: 'ListOption1',
   components: { firComponent, myTable },
+  async asyncData() {
+    const { data } = await axios.get(pageApi.tableData)
+    console.log(commonApi)
+    console.log('发起请求')
+    return { tableData: data.data }
+  },
   data: () => {
     return {
-      title: '展示下列表1的查询',
+      title: '展示下列表',
       inText: '我是个好人',
       config: {
         columns: [
@@ -58,33 +68,7 @@ export default {
           }
         ],
         loading: false,
-        pagination: {},
-        data: [
-          {
-            fir: '第一列01',
-            sec: '第二列01',
-            thi: '第三列01',
-            key: 1
-          },
-          {
-            fir: '第一列02',
-            sec: '第二列02',
-            thi: '第三列02',
-            key: 2
-          },
-          {
-            fir: '第一列03',
-            sec: '第二列03',
-            thi: '第三列03',
-            key: 3
-          },
-          {
-            fir: '第一列04',
-            sec: '第二列04',
-            thi: '第三列04',
-            key: 4
-          }
-        ]
+        pagination: {}
       },
       list: [
         { key: 1, text: '第一行' },

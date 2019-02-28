@@ -11,6 +11,15 @@
     <div>
       <span>(inText + inputModel) = {{ activeValue }}</span>
     </div>
+    <div>
+      <button @click="getActive()">
+        点击我
+      </button>
+      <span> {{ activeValue }}</span>
+    </div>
+    <div>
+      {{ allKey }}
+    </div>
   </div>
 </template>
 
@@ -25,12 +34,24 @@ export default {
   },
   computed: {
     activeValue: {
-      get: () => {
-        return 'tetetet'
+      get: function() {
+        return this.inputModel * 2
       },
-      set: inputModel => {
-        return inputModel
+      set: function(val) {
+        this.inputModel = val + 3
       }
+    },
+    allKey: function() {
+      let allkeyVal = 1
+      this.list.forEach(l => {
+        allkeyVal += l.key * 1
+      })
+      return allkeyVal
+    }
+  },
+  methods: {
+    getActive() {
+      this.activeValue = this.inputModel + 6
     }
   }
 }

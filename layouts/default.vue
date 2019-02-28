@@ -24,11 +24,13 @@
           </span>
           <a-menu-item key="11">
             <nuxt-link to="/listManage/ListOption1">
-              <span>列表页面1</span>
+              <span>第一个测试玩玩页面</span>
             </nuxt-link>
           </a-menu-item>
           <a-menu-item key="12">
-            列表页面2
+            <nuxt-link to="/listManage/page01">
+              <span>表格</span>
+            </nuxt-link>
           </a-menu-item>
           <a-menu-item key="13">
             列表页面3
