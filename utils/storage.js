@@ -1,7 +1,7 @@
 import { Common } from '@/factory/common'
 
 const local = localStorage
-const session = localStorage
+const session = sessionStorage
 
 const version = Common.version
 const symbol = Common.symbol
@@ -14,29 +14,28 @@ const symbol = Common.symbol
  * @param noVersion 是否需要添加版本
 */
 
+const getVersionKey = key => {
+  return (
+    key +
+    symbol.underline +
+    this.specialVersion +
+    symbol.underline +
+    version.curr
+  )
+}
+
 export function setLocal(key, val, noVersion) {
   if (!key) return
   if (noVersion) local.setItem(key, JSON.stringify(val))
   else {
-    const localKey =
-      key +
-      symbol.underline +
-      this.specialVersion +
-      symbol.underline +
-      version.curr
+    const localKey = getVersionKey(key)
     local.setItem(localKey, JSON.stringify(val))
   }
 }
 
 export function getLocal(key, isRemove, noVersion) {
   if (!key) return
-  const localKey = noVersion
-    ? key
-    : key +
-      symbol.underline +
-      this.specialVersion +
-      symbol.underline +
-      version.curr
+  const localKey = noVersion ? key : getVersionKey(key)
   const res = JSON.parse(local.getItem(localKey))
   if (isRemove) local.removeItem(localKey)
   return res
@@ -44,28 +43,16 @@ export function getLocal(key, isRemove, noVersion) {
 
 export function setSession(key, val, noVersion) {
   if (!key) return
-  if (noVersion) local.setItem(key, JSON.stringify(val))
+  if (noVersion) session.setItem(key, JSON.stringify(val))
   else {
-    const sessionKey = noVersion
-      ? key
-      : key +
-        symbol.underline +
-        this.specialVersion +
-        symbol.underline +
-        version.curr
+    const sessionKey = noVersion ? key : getVersionKey(key)
     session.setItem(sessionKey, JSON.stringify(val))
   }
 }
 
 export function getSession(key, isRemove, noVersion) {
   if (!key) return
-  const sessionKey = noVersion
-    ? key
-    : key +
-      symbol.underline +
-      this.specialVersion +
-      symbol.underline +
-      version.curr
+  const sessionKey = noVersion ? key : getVersionKey(key)
   const res = JSON.parse(session.getItem(sessionKey))
   if (isRemove) session.removeItem(sessionKey)
   return res

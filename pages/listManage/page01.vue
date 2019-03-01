@@ -12,9 +12,7 @@
 
 <script>
 import myTable from '@/components/table/myTable.vue'
-import axios from 'axios'
 import { commonApi, pageApi } from '@/factory/api'
-import * as storage from '@/utils/storage'
 
 export default {
   name: 'page01',
@@ -58,9 +56,11 @@ export default {
     // },
     this.$axios.get(pageApi.tableData).then(res => {
       console.log(commonApi)
+      this.$setLocal('TEXT_DATA2', this.tableData, true)
       this.tableData = res.data.data
+      this.$setSession('TEXT_DATA2', this.tableData, true)
     })
-    storage.setLocal('TEXT_DATA', this.tableData, false)
+
     // this.setLocal('TEXT_DATA2', this.tableData, true)
   }
 }
