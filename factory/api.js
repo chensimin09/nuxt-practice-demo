@@ -9,3 +9,6 @@ export const commonApi = {
     test: ''
   }
 }
+export const storeApi = {
+  list: '/tableData.json'
+}

@@ -5,6 +5,7 @@
       :pagination="pagination"
       :loading="loading"
       :data-source="data"
+      :scroll="scroll"
     />
   </div>
 </template>
@@ -28,6 +29,10 @@ export default {
     loading: {
       type: Boolean,
       default: () => false
+    },
+    scroll: {
+      type: Object,
+      default: () => {}
     }
   },
   beforeMount: function() {
@@ -46,4 +51,10 @@ export default {
 </script>
 
 <style scoped>
+.ant-table-thead tr {
+  height: 70px !important;
+}
+.ant-table-tbody tr {
+  height: 65px !important;
+}
 </style>

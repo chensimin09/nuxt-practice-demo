@@ -5,25 +5,33 @@
       "fir": "第一列01",
       "sec": "第二列01",
       "thi": "第三列01",
-      "key": 1
+      "key": 1,
+      "done": true,
+      "name": "测试Store1"
     },
     {
       "fir": "第一列02",
       "sec": "第二列02",
       "thi": "第三列02",
-      "key": 2
+      "key": 2,
+      "done": false,
+      "name": "测试Store2"
     },
     {
       "fir": "第一列03",
       "sec": "第二列03",
       "thi": "第三列03",
-      "key": 3
+      "key": 3,
+      "done": true,
+      "name": "测试Store3"
     },
     {
       "fir": "第一列04",
       "sec": "第二列04",
       "thi": "第三列04",
-      "key": 4
+      "key": 4,
+      "done": false,
+      "name": "测试Store4"
     }
   ]
 }

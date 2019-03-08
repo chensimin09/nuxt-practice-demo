@@ -33,7 +33,9 @@
             </nuxt-link>
           </a-menu-item>
           <a-menu-item key="13">
-            列表页面3
+            <nuxt-link to="/listManage/VueStore">
+              <span>玩玩Store</span>
+            </nuxt-link>
           </a-menu-item>
           <a-menu-item key="14">
             列表页面4

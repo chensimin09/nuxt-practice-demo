@@ -5,6 +5,7 @@
       :data="tableData"
       :loading="config.loading"
       :pagination="config.pagination"
+      :scroll="config.scroll"
       rowkey="fir"
     />
   </div>
@@ -26,45 +27,141 @@ export default {
             title: '第一列',
             dataIndex: 'fir',
             sorter: false,
-            key: 'fir'
+            key: 'fir',
+            fixed: 'left',
+            width: 150
           },
           {
             title: '第二列',
             dataIndex: 'sec',
             sorter: true,
-            key: 'sec'
+            key: 'sec',
+            fixed: 'left',
+            width: 150
           },
           {
-            title: '第三列',
+            title: '第3列',
             dataIndex: 'thi',
             sorter: true,
-            key: 'thi'
+            key: 'thi10',
+            width: 150
+          },
+          {
+            title: '第4列',
+            dataIndex: 'thi',
+            sorter: true,
+            key: 'thi9',
+            width: 150
+          },
+          {
+            title: '第5列',
+            dataIndex: 'thi',
+            sorter: true,
+            key: 'thi8',
+            width: 150
+          },
+          {
+            title: '第6列',
+            dataIndex: 'thi',
+            sorter: true,
+            key: 'thi7',
+            width: 150
+          },
+          {
+            title: '第7列',
+            dataIndex: 'thi',
+            sorter: true,
+            key: 'thi6',
+            width: 150
+          },
+          {
+            title: '第8列',
+            dataIndex: 'thi',
+            sorter: true,
+            key: 'thi5',
+            width: 150
+          },
+          {
+            title: '第9列',
+            dataIndex: 'thi',
+            sorter: true,
+            key: 'thi4',
+            width: 150
+          },
+          {
+            title: '第10列',
+            dataIndex: 'thi',
+            sorter: true,
+            key: 'thi3',
+            width: 150
+          },
+          {
+            title: '第11列',
+            dataIndex: 'thi',
+            sorter: true,
+            key: 'thi2',
+            width: 150
+          },
+          {
+            title: '第12列',
+            dataIndex: 'thi',
+            sorter: true,
+            key: 'thi1',
+            width: 150
+          },
+          {
+            title: '第13列',
+            dataIndex: 'thi',
+            sorter: true,
+            key: 'thi11',
+            width: 150
+          },
+          {
+            title: '第14列',
+            dataIndex: 'thi',
+            sorter: true,
+            key: 'thi12',
+            width: 150
+          },
+          {
+            title: '第15列',
+            dataIndex: 'thi',
+            sorter: true,
+            key: 'thi13',
+            width: 150
+          },
+          {
+            title: '第五列',
+            dataIndex: 'thi',
+            sorter: false,
+            key: 'thi51',
+            fixed: 'right',
+            width: 150
           }
         ],
         loading: false,
-        pagination: {}
+        pagination: {},
+        scroll: { x: 2300, y: 300 }
       }
     }
   },
   mounted: function() {
-    // async asyncData({ app }) {
-    //   console.log(app)
-    //   const { data } = await app.$axios.get(pageApi.tableData)
-    //   console.log(commonApi)
-    //   console.log('发起请求')
-    //   return { tableData: data.data }
-    // },
-    this.$axios.get(pageApi.tableData).then(res => {
-      console.log(commonApi)
+    console.log(commonApi)
+    this.$axios.get(pageApi.tableData, { data: 'hhhhhh' }).then(res => {
+      console.log(res)
       this.$setLocal('TEXT_DATA2', this.tableData, true)
       this.tableData = res.data.data
       this.$setSession('TEXT_DATA2', this.tableData, true)
     })
-
-    // this.setLocal('TEXT_DATA2', this.tableData, true)
   }
 }
 </script>
 
 <style scoped>
+.ant-table-thead tr {
+  height: 70px !important;
+}
+.ant-table-tbody tr {
+  height: 65px !important;
+}
 </style>
