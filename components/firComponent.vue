@@ -25,8 +25,17 @@
 
 <script>
 export default {
-  name: 'firComponent',
-  props: { list: Array, inText: String },
+  name: 'FirComponent',
+  props: {
+    list: {
+      type: Array,
+      default: () => []
+    },
+    inText: {
+      type: String,
+      default: () => ''
+    }
+  },
   data: () => {
     return {
       inputModel: ''

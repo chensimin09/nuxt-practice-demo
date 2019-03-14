@@ -1,6 +1,12 @@
 <template>
   <div>
     <div style="margin-top: 20px">
+      <nuxt-link :to="'/listManage/detail/' + id">
+        <p>
+          detail详情(动态路由)
+        </p>
+      </nuxt-link>
+
       <p class="font-red">
         普通CSS
       </p>
