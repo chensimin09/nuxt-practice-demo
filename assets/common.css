@@ -1,0 +1,15 @@
+.font-red {
+  color: red;
+}
+
+.test-less {
+  /*background-color: .;*/
+}
+
+
+.page-enter-active, .page-leave-active {
+  transition: opacity .5s;
+}
+.page-enter, .page-leave-active {
+  opacity: 0;
+}

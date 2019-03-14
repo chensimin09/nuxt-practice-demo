@@ -1,3 +1,5 @@
+import webpack from 'webpack'
+
 const pkg = require('./package')
 
 module.exports = {
@@ -24,12 +26,21 @@ module.exports = {
   /*
   ** Global CSS
   */
-  css: ['ant-design-vue/dist/antd.css'],
+  css: [
+    'ant-design-vue/dist/antd.css',
+    '~/assets/common.css',
+    '~/assets/test01',
+    '~/assets/test02'
+  ],
 
   /*
   ** Plugins to load before mounting the App
   */
-  plugins: ['@/plugins/antd-ui', '@/plugins/axios', '@/plugins/do-storage'],
+  plugins: [
+    { src: '@/plugins/antd-ui', ssr: false },
+    { src: '@/plugins/axios', ssr: false },
+    { src: '@/plugins/do-storage', ssr: false }
+  ],
 
   /*
   ** Nuxt.js modules
@@ -40,19 +51,23 @@ module.exports = {
   ** Build configuration
   */
   build: {
-    /*
-    ** You can extend webpack config here
-    */
-    // extend(config, ctx) {
-    //   // Run ESLint on save
-    //   if (ctx.isDev && ctx.isClient) {
-    //     config.module.rules.push({
-    //       enforce: 'pre',
-    //       test: /\.(js|vue)$/,
-    //       loader: 'eslint-loader',
-    //       exclude: /(node_modules)/
-    //     })
-    //   }
-    // }
+    plugins: [
+      new webpack.ProvidePlugin({
+        _: 'lodash',
+        $: 'jquery'
+      })
+    ],
+    extend(config, ctx) {
+      config.devtool = 'eval-source-map'
+      // Run ESLint on save
+      if (ctx.isDev && ctx.isClient) {
+        config.module.rules.push({
+          enforce: 'pre',
+          test: /\.(js|vue)$/,
+          loader: 'eslint-loader',
+          exclude: /(node_modules)/
+        })
+      }
+    }
   }
 }

@@ -38,7 +38,9 @@
             </nuxt-link>
           </a-menu-item>
           <a-menu-item key="14">
-            列表页面4
+            <nuxt-link to="/listManage/pageRoute">
+              <span>pageRoute</span>
+            </nuxt-link>
           </a-menu-item>
         </a-sub-menu>
       </a-menu>

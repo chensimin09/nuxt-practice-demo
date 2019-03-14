@@ -1,13 +1,36 @@
 <template>
   <div>
-    <myTable
-      :columns="config.columns"
-      :data="tableData"
-      :loading="config.loading"
-      :pagination="config.pagination"
-      :scroll="config.scroll"
-      rowkey="fir"
-    />
+    <div style="margin-top: 20px">
+      <p class="font-red">
+        普通CSS
+      </p>
+      <p style="color:blue">
+        普通Style
+      </p>
+      <p id="base">
+        普通less
+      </p>
+      <p class="font-gray">
+        scope里的css
+      </p>
+
+      <p class="test02-base">
+        test-less
+      </p>
+
+      <p class="color2">
+        test02
+      </p>
+
+      <myTable
+        :columns="config.columns"
+        :data="tableData"
+        :loading="config.loading"
+        :pagination="config.pagination"
+        :scroll="config.scroll"
+        rowkey="fir"
+      />
+    </div>
   </div>
 </template>
 
@@ -16,11 +39,12 @@ import myTable from '@/components/table/myTable.vue'
 import { commonApi, pageApi } from '@/factory/api'
 
 export default {
-  name: 'page01',
+  name: 'Page01',
   components: { myTable },
   data: () => {
     return {
       tableData: [],
+      id: 1234,
       config: {
         columns: [
           {
@@ -150,9 +174,11 @@ export default {
     this.$axios.get(pageApi.tableData, { data: 'hhhhhh' }).then(res => {
       console.log(res)
       this.$setLocal('TEXT_DATA2', this.tableData, true)
+      console.log(_.keys(res.data.data))
       this.tableData = res.data.data
       this.$setSession('TEXT_DATA2', this.tableData, true)
     })
+    console.log($('.font-red'))
   }
 }
 </script>
@@ -163,5 +189,8 @@ export default {
 }
 .ant-table-tbody tr {
   height: 65px !important;
+}
+.font-gray {
+  color: orange;
 }
 </style>
