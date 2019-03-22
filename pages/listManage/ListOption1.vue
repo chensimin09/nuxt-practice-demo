@@ -30,18 +30,17 @@
 <script>
 import firComponent from '@/components/firComponent.vue'
 import myTable from '@/components/table/myTable.vue'
-import axios from 'axios'
-import { commonApi, pageApi } from '@/factory/api'
+// import { commonApi, pageApi } from '@/factory/api'
 
 export default {
   name: 'ListOption1',
   components: { firComponent, myTable },
-  async asyncData() {
-    const { data } = await axios.get(pageApi.tableData)
-    console.log(commonApi)
-    console.log('发起请求')
-    return { tableData: data.data }
-  },
+  // async asyncData({ app }) {
+  //   const { data } = await app.$axios.get(pageApi.tableData)
+  //   console.log(commonApi)
+  //   console.log('发起请求')
+  //   return { tableData: data.data }
+  // },
   data: () => {
     return {
       title: '展示下列表',

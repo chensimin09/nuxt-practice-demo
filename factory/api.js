@@ -12,3 +12,7 @@ export const commonApi = {
 export const storeApi = {
   list: '/tableData.json'
 }
+
+export const getBaseDate = {
+  date: '/huashang/bi/common/getBaseDate'
+}

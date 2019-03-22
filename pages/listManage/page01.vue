@@ -184,7 +184,6 @@ export default {
       this.tableData = res.data.data
       this.$setSession('TEXT_DATA2', this.tableData, true)
     })
-    console.log($('.font-red'))
   }
 }
 </script>

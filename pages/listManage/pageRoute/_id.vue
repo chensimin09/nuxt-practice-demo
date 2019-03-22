@@ -7,8 +7,14 @@
 </template>
 
 <script>
+import { baseDate, page } from '@/plugins/axiosService'
 export default {
-  name: 'Id'
+  name: 'Id',
+  mounted: function() {
+    page.getPageData(this.$axios, '1').then(res => console.log(res, 'id页面'))
+    console.log('---------------------------')
+    baseDate.getBaseDate(this.$axios)
+  }
 }
 </script>
 

@@ -39,6 +39,7 @@ module.exports = {
   plugins: [
     { src: '@/plugins/antd-ui', ssr: false },
     { src: '@/plugins/axios', ssr: false },
+    { src: '@/plugins/axiosService', ssr: false },
     { src: '@/plugins/do-storage', ssr: false }
   ],
 
@@ -47,10 +48,30 @@ module.exports = {
   */
   modules: ['@nuxtjs/axios'],
 
+  /**
+   * Axios Module config
+   */
+  axios: {
+    proxy: true,
+    credentials: true
+  },
+
+  /**
+   * Proxy Config
+   */
+  proxy: {
+    '/huashang/bi/': {
+      target: 'http://10.0.1.51:9909',
+      changeOrigin: false,
+      logLevel: 'debug'
+    }
+  },
+
   /*
   ** Build configuration
   */
   build: {
+    vendor: ['axios'],
     plugins: [
       new webpack.ProvidePlugin({
         _: 'lodash',
